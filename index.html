@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Recuperação de Crédito - Lux Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Lexend:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #040d12; /* Fundo Deep Ocean */
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        h1, .font-heading {
+            font-family: 'Lexend', sans-serif;
+        }
+
+        /* Emerald Glass Card */
+        .glass-card {
+            background: rgba(10, 25, 20, 0.7);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(45, 212, 191, 0.15);
+            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.8);
+            border-radius: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(45, 212, 191, 0.4);
+            box-shadow: 0 50px 100px -20px rgba(20, 184, 166, 0.15);
+        }
+
+        /* Emerald & Gold Button */
+        .cta-button {
+            background: linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%);
+            color: #042f2e;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 15px 35px -8px rgba(20, 184, 166, 0.6);
+        }
+
+        /* Status Dot */
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .status-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background-color: #10b981;
+            opacity: 0.4;
+            animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes ping {
+            75%, 100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        /* Background Effects */
+        .aurora {
+            position: fixed;
+            width: 80vw;
+            height: 60vh;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.05) 0%, transparent 70%);
+            filter: blur(120px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .aurora-1 { top: -10%; right: -10%; }
+        .aurora-2 { bottom: -10%; left: -10%; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+
+    <!-- Header -->
+    <header class="p-6 flex justify-between items-center max-w-5xl mx-auto w-full relative z-20">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-teal-500 rounded-lg flex items-center justify-center shadow-inner">
+                <svg class="w-6 h-6 text-teal-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-bold text-lg leading-tight tracking-tight text-white">RENOVA<span class="text-teal-400">CRED</span></span>
+                <span class="text-[9px] font-semibold uppercase tracking-[0.3em] text-teal-600/80">Segurança Bancária</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-3 px-4 py-1.5 rounded-full border border-teal-900/40 bg-teal-950/20">
+            <div class="status-dot"></div>
+            <span class="text-[10px] font-bold text-teal-400 uppercase tracking-tighter">Sistemas Online</span>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-grow flex items-center justify-center p-6">
+        <div class="max-w-lg w-full">
+            <div class="glass-card overflow-hidden">
+                <!-- Top Accent Bar -->
+                <div class="h-1.5 w-full bg-gradient-to-r from-teal-500 via-emerald-400 to-teal-500"></div>
+                
+                <div class="p-10 md:p-14">
+                    <div class="flex justify-start mb-6">
+                        <span class="bg-teal-950/50 border border-teal-500/30 text-teal-400 text-[9px] font-bold px-3 py-1 rounded-md uppercase tracking-widest">
+                            Consulta Governamental Liberada
+                        </span>
+                    </div>
+
+                    <h1 class="text-4xl font-extrabold text-white mb-4 leading-tight">
+                        Recupere sua <br>
+                        <span class="text-teal-400">Liberdade Financeira</span>
+                    </h1>
+
+                    <p class="text-slate-400 text-sm md:text-base mb-8 leading-relaxed">
+                        Acesse o portal oficial para consulta de restrições e verificação de subsídios para quitação de débitos ativos em 2026.
+                    </p>
+
+                    <!-- CTA Section -->
+                    <div class="space-y-6">
+                        <a href="https://acessorpfeiraobrasil.shop/" 
+                           class="cta-button w-full py-5 rounded-xl flex items-center justify-center gap-3 text-base uppercase tracking-wider hover:no-underline">
+                            <span>Verificar Desconto Agora</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+
+                        <div class="flex items-center justify-between px-2">
+                            <div class="flex items-center gap-1.5 text-[10px] text-slate-500 font-medium">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                SSL 256-bit
+                            </div>
+                            <div class="flex items-center gap-1.5 text-[10px] text-slate-500 font-medium">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                LGPD Compliance
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Statistics -->
+                    <div class="mt-12 pt-8 border-t border-teal-900/30 grid grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-[10px] font-semibold text-teal-600 uppercase mb-1">Taxas de Juros</p>
+                            <p class="text-xl font-bold text-white">-99% <span class="text-xs text-teal-500 font-normal">médio</span></p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-semibold text-teal-600 uppercase mb-1">Prazo de Baixa</p>
+                            <p class="text-xl font-bold text-white">72h <span class="text-xs text-teal-500 font-normal">úteis</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-8 text-center border-t border-teal-950/50 bg-black/20">
+        <p class="text-[10px] text-slate-600 font-medium uppercase tracking-[0.1em] mb-2">
+            Protocolo de Segurança Ativo: 4882-X9
+        </p>
+        <p class="text-[9px] text-slate-700 font-bold uppercase tracking-widest">
+            © 2026 TECNOLOGIA DE CRÉDITO E RECUPERAÇÃO LTDA
+        </p>
+    </footer>
+
+</body>
+</html>
